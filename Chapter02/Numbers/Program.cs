@@ -1,52 +1,61 @@
-﻿// unsigned integer means positive whole number or 0
-//uint naturalNumber = 23;
+﻿// Unsigned integer means positive whole number or 0
+uint naturalNumber = 23;
+Console.WriteLine($"{nameof(naturalNumber)}: {naturalNumber}");
 
-// integer means negative or positive whole number or 0
-//int integerNumber = -23;
+// Integer means negative or positive whole number or 0
+int integerNumber = -23;
+Console.WriteLine($"{nameof(integerNumber)}: {integerNumber}");
 
-// float means single-precision floating point
+// Float means single-precision floating point
 // F suffix makes it a float literal
-//float realNumber = 2.3F;
+float realNumber = 2.3F;
+Console.WriteLine($"{nameof(realNumber)}: {realNumber}");
 
-// double means double-precision floating point
-// double is the default type for a number value with a decimal point .
-//double anotherRealNumber = 2.3; // double literal
+// Double means double-precision floating point
+double anotherRealNumber = 2.3; // Double literal
+Console.WriteLine($"{nameof(anotherRealNumber)}: {anotherRealNumber}");
 
-// three variables that store the number 2 million
+// Three variables that store the number 2 million
+// You can (but don't have to) use underscores (_) for legibility
 int decimalNotation = 2_000_000;
-int binaryNotation = 0b_0001_1110_1000_0100_1000_0000; 
+Console.WriteLine($"{nameof(decimalNotation)}: {decimalNotation}");
+int binaryNotation = 0b_0001_1110_1000_0100_1000_0000;
+Console.WriteLine($"{nameof(binaryNotation)}: {binaryNotation}");
 int hexadecimalNotation = 0x_001E_8480;
+Console.WriteLine($"{nameof(hexadecimalNotation)}: {hexadecimalNotation}");
 
-// check the three variables have the same value
-// both statements output true 
+// Check the three variables have the same value
+// Both statements should output true
 Console.WriteLine($"{decimalNotation == binaryNotation}");
 Console.WriteLine($"{decimalNotation == hexadecimalNotation}");
 
-Console.WriteLine($"int uses {sizeof(int)} bytes and can store numbers in the range {int.MinValue:N0} to {int.MaxValue:N0}."); 
-Console.WriteLine($"\ndouble uses {sizeof(double)} bytes and can store numbers in the range {double.MinValue:N0} to {double.MaxValue:N0}."); 
-Console.WriteLine($"\ndecimal uses {sizeof(decimal)} bytes and can store numbers in the range {decimal.MinValue:N0} to {decimal.MaxValue:N0}.");
+// Exploring number sizes
+Console.WriteLine($"uint uses {sizeof(uint)} bytes and can store numbers in the range {uint.MinValue:N0} to {uint.MaxValue:N0}.");
+Console.WriteLine($"int uses {sizeof(int)} bytes and can store numbers in the range {int.MinValue:N0} to {int.MaxValue:N0}.");
+Console.WriteLine($"double uses {sizeof(double)} bytes and can store numbers in the range {double.MinValue:N0} to {double.MaxValue:N0}.");
+Console.WriteLine($"decimal uses {sizeof(decimal)} bytes and can store numbers in the range {decimal.MinValue:N0} to {decimal.MaxValue:N0}.");
 
-Console.WriteLine("\nUsing doubles:"); 
+// Compare double and decimal types (because it looks like double is better by storing more for less!)
+Console.WriteLine("Using doubles:");
 double a = 0.1;
-
 double b = 0.2;
-
-// Only use double when accuracy,especially when comparing the equality of two numbers,
-// is not important.
-
-if (a + b == 0.3)
+if(a + b == 0.3)
 {
     Console.WriteLine($"{a} + {b} equals {0.3}");
 }
+// This shows that doubles are not guaranteed to be accurate
+// Because some numbers, like 0.1, can't be represented as floating-point values
+// Use double when accuracy isn't important (like only using < or > and not ==)
 else
 {
     Console.WriteLine($"{a} + {b} does NOT equal {0.3}");
 }
 
-Console.WriteLine("\nUsing literal decimals:");
+Console.WriteLine("Using decimals:");
 decimal c = 0.1M; // M suffix means a decimal literal value
 decimal d = 0.2M;
-if (c + d == 0.3M)
+// This shows that decimals are guaranteed to be accurate and can be used for == comparison
+if(c + d == 0.3M)
 {
     Console.WriteLine($"{c} + {d} equals {0.3M}");
 }
