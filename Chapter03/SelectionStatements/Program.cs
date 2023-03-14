@@ -15,7 +15,7 @@ else
 object o = "3";
 int j = 4;
 // Only if o is an int will the value be assigned to the local variable i (pattern matching)
-// This is safter than using the o variable because we know for sure
+// This is safer than using the o variable because we know for sure
 // that i is an int variable and not something else.
 if(o is int i)
 {
